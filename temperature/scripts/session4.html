@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+</head>
+<body>
+    <h1>Temperature Converter</h1>
+    <form id="tempConverterForm">
+        <label for="startTemp">Starting Temperature:</label>
+        <input type="number" id="startTemp" name="startTemp" step="any" required><br><br>
+
+        <label for="endTemp">Ending Temperature:</label>
+        <input type="number" id="endTemp" name="endTemp" step="any" required><br><br>
+
+        <label for="scale">Scale:</label>
+        <select id="scale" name="scale" required>
+            <option value="C">Celsius</option>
+            <option value="F">Fahrenheit</option>
+        </select><br><br>
+
+        <button type="submit">Convert</button>
+    </form>
+
+    <div id="result"></div>
+    </script>
+</body>
+</html>

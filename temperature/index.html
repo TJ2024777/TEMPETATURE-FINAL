@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Simple Calculator</h2>
+        <form id="calculatorForm">
+            <label for="firstNumber">Enter the first number:</label><br>
+            <input type="number" id="firstNumber" name="firstNumber" required><br><br>
+            <label for="secondNumber">Enter the second number:</label><br>
+            <input type="number" id="secondNumber" name="secondNumber" required><br><br>
+            <label for="operation">Select the operation:</label><br>
+            <select id="operation" name="operation">
+                <option value="addition">Addition</option>
+                <option value="subtraction">Subtraction</option>
+                <option value="multiplication">Multiplication</option>
+                <option value="division">Division</option>
+            </select><br><br>
+            <button type="submit">Calculate</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('calculatorForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const num1 = parseFloat(document.getElementById('firstNumber').value);
+            const num2 = parseFloat(document.getElementById('secondNumber').value);
+            const operation = document.getElementById('operation').value;
+
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById('result').innerText = "Invalid input. Please enter valid numbers.";
+                return;
+            }
+
+            switch(operation) {
+                case 'addition':
+                    result = num1 + num2;
+                    document.getElementById('result').innerText = "Result: " + result;
+                    break;
+                case 'subtraction':
+                    result = num1 - num2;
+                    document.getElementById('result').innerText = "Result: " + result;
+                    break;
+                case 'multiplication':
+                    result = num1 * num2;
+                    document.getElementById('result').innerText = "Result: " + result;
+                    break;
+                case 'division':
+                    if (num2 === 0) {
+                        document.getElementById('result').innerText = "Error: Division by zero.";
+                    } else {
+                        result = num1 / num2;
+                        document.getElementById('result').innerText = "Result: " + result;
+                    }
+                    break;
+                default:
+                    document.getElementById('result').innerText = "Invalid operation. Please select an operation.";
+            }
+        });
+    </script>
+</body>
+</html>
